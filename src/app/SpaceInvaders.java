@@ -1,4 +1,5 @@
 package app;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -21,6 +22,13 @@ public class SpaceInvaders extends JPanel {
 
     ArrayList<Image> alienImgArray;
 
+    int shipWidth = tileSize * 2; //64px
+    int shipHeight = tileSize; //32px
+    int shipX = tileSize * columns / 2 - tileSize;
+    int shipY = boardHeight - tileSize * 2;
+
+    Block ship;
+
     SpaceInvaders() {
         setPreferredSize(new Dimension(boardWidth, boardHeight));
         setBackground(Color.BLACK);
@@ -37,5 +45,7 @@ public class SpaceInvaders extends JPanel {
         alienImgArray.add(alienCyanImg);
         alienImgArray.add(alienMagentaImg);
         alienImgArray.add(alienYellowImg);
+
+        ship = new Block(shipX, shipY, shipWidth, shipHeight, shipImg);
     }
 }
